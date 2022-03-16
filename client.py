@@ -6,13 +6,6 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((socket.gethostname(),1234))
 
 
-
-
-
-
-
-
-
 pygame.init()
 
 fekete = (0,0,0)
@@ -57,24 +50,21 @@ while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
+            
+            
     igaz = False
     if adatok[0] != '' and adatok[1] != '':
-        jobbvbal = int(adatok[0])
-        cy = int(adatok[1])
+        cyb = int(adatok[0])
+        cyj = int(adatok[1])
         igaz = True
-        print(jobbvbal,cy)
+        print(cyb,cyj)
         
-    if igaz and jobbvbal == 0:
-        paddleA.rect.y = cy
+    if igaz:
+        paddleA.rect.y = cyb
         
-    elif igaz and jobbvbal == 1:
-        paddleB.rect.y = cy
-    
-
-
-
-
-
+    if igaz:
+        paddleB.rect.y = cyj
+        
 
     all_sprites_list.update()
     
